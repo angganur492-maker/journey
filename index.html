@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Our Journey</title>
+<meta name="description" content="Perjalanan kita, dari satu kota ke kota lainnya">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,600;1,500;1,600&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<audio id="bgm" loop preload="auto">
+  <source src="assets/music.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicToggle" class="music-toggle" aria-label="Putar musik" aria-pressed="false">
+  <svg viewBox="0 0 24 24" class="icon-note" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+</button>
+
+<!-- Kelopak bunga melayang, dibuat otomatis lewat script.js -->
+<div class="petals" id="petals" aria-hidden="true"></div>
+
+<main id="app">
+
+  <!-- ================= PAGE 1 — HALAMAN PEMBUKA ================= -->
+  <section class="page active" id="page-home" data-page="home">
+    <div class="home">
+      <div class="home__bloom home__bloom--1" aria-hidden="true"></div>
+      <div class="home__bloom home__bloom--2" aria-hidden="true"></div>
+      <div class="home__bloom home__bloom--3" aria-hidden="true"></div>
+
+      <p class="home__eyebrow">sebuah catatan kecil tentang</p>
+      <h1 class="home__title">Our<br>Journey</h1>
+      <p class="home__sub">setiap kota yang kita singgahi, jadi bagian dari cerita kita</p>
+
+      <button class="btn-bloom" id="btnStart">
+        <span>Buka Ceritanya</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ================= PAGE 2 — PETA JAWA TENGAH ================= -->
+  <section class="page" id="page-map" data-page="map">
+    <div class="map-scene">
+      <div class="map-scene__frame" id="mapFrame">
+        <img class="map-scene__img" src="assets/map/peta-jawa.jpg" alt="Peta Pulau Jawa">
+      </div>
+      <div class="map-scene__scrim"></div>
+
+      <div class="map-scene__caption">
+        <p class="map-scene__kicker">titik-titik yang pernah kita datangi</p>
+        <button class="btn-bloom btn-bloom--reveal" id="btnWhereWeWent">
+          <span>pernah kemana aja si kita</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PAGE 3 — DAFTAR KOTA ================= -->
+  <section class="page" id="page-cities" data-page="cities">
+    <header class="page-head">
+      <p class="page-head__eyebrow">jejak perjalanan</p>
+      <h2 class="page-head__title">Kita, dan Kota-kotanya</h2>
+    </header>
+
+    <div class="city-grid">
+      <div class="city-card">
+        <img class="city-card__img" src="assets/cities/sragen-cover.jpg" alt="Sragen">
+        <span class="city-card__name">Sragen</span>
+        <button class="btn-outline" data-goto="sragen">Buka</button>
+      </div>
+
+      <div class="city-card">
+        <img class="city-card__img" src="assets/cities/solo-cover.jpg" alt="Solo">
+        <span class="city-card__name">Solo</span>
+        <button class="btn-outline" data-goto="solo">Buka</button>
+      </div>
+
+      <div class="city-card">
+        <img class="city-card__img" src="assets/cities/yogya-cover.jpg" alt="Yogyakarta">
+        <span class="city-card__name">Yogya</span>
+        <button class="btn-outline" data-goto="yogya">Buka</button>
+      </div>
+
+      <div class="city-card city-card--next">
+        <span class="city-card__next-mark">?</span>
+        <span class="city-card__name">Next?</span>
+        <button class="btn-outline" data-goto="next">Buka</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PAGE — SRAGEN ================= -->
+  <section class="page page--city" id="page-sragen" data-page="sragen">
+    <button class="btn-back" data-goto="cities" aria-label="Kembali">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    </button>
+    <header class="page-head page-head--city">
+      <p class="page-head__eyebrow">kota pertama</p>
+      <h2 class="page-head__title page-head__title--script">Sragen</h2>
+    </header>
+
+    <ul class="gallery">
+      <li class="gallery__item">
+        <img src="assets/cities/sragen/foto1.jpg" alt="Kenangan di Sragen">
+      </li>
+      <li class="gallery__item">
+        <img src="assets/cities/sragen/foto2.jpg" alt="Kenangan di Sragen">
+      </li>
+      <li class="gallery__item">
+        <img src="assets/cities/sragen/foto3.jpg" alt="Kenangan di Sragen">
+      </li>
+    </ul>
+  </section>
+
+  <!-- ================= PAGE — SOLO ================= -->
+  <section class="page page--city" id="page-solo" data-page="solo">
+    <button class="btn-back" data-goto="cities" aria-label="Kembali">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    </button>
+    <header class="page-head page-head--city">
+      <p class="page-head__eyebrow">lanjut ke</p>
+      <h2 class="page-head__title page-head__title--script">Solo</h2>
+    </header>
+
+    <ul class="gallery">
+      <li class="gallery__item">
+        <img src="assets/cities/solo/foto1.jpg" alt="Kenangan di Solo">
+      </li>
+      <li class="gallery__item">
+        <img src="assets/cities/solo/foto2.jpg" alt="Kenangan di Solo">
+      </li>
+      <li class="gallery__item">
+        <img src="assets/cities/solo/foto3.jpg" alt="Kenangan di Solo">
+      </li>
+    </ul>
+  </section>
+
+  <!-- ================= PAGE — YOGYA ================= -->
+  <section class="page page--city" id="page-yogya" data-page="yogya">
+    <button class="btn-back" data-goto="cities" aria-label="Kembali">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    </button>
+    <header class="page-head page-head--city">
+      <p class="page-head__eyebrow">dan sampai di</p>
+      <h2 class="page-head__title page-head__title--script">Yogyakarta</h2>
+    </header>
+
+    <ul class="gallery">
+      <li class="gallery__item">
+        <img src="assets/cities/yogya/foto1.jpg" alt="Kenangan di Yogyakarta">
+      </li>
+      <li class="gallery__item">
+        <img src="assets/cities/yogya/foto2.jpg" alt="Kenangan di Yogyakarta">
+      </li>
+      <li class="gallery__item">
+        <img src="assets/cities/yogya/foto3.jpg" alt="Kenangan di Yogyakarta">
+      </li>
+    </ul>
+  </section>
+
+  <!-- ================= PAGE — NEXT ================= -->
+  <section class="page page--city" id="page-next" data-page="next">
+    <button class="btn-back" data-goto="cities" aria-label="Kembali">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    </button>
+    <div class="next-page">
+      <p class="next-page__mark">?</p>
+      <h2 class="page-head__title page-head__title--script">Ke mana lagi, ya?</h2>
+      <p class="next-page__text">kota berikutnya masih jadi rahasia — tunggu ceritanya nanti.</p>
+    </div>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
